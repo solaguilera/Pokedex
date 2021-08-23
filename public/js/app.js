@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const container = document.getElementById('app');
-const pokemons = 100;
+const pokemons = 50;
 const getPokemon = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const pokemon = yield data.json();
@@ -26,12 +26,14 @@ const getPokemon = (id) => __awaiter(void 0, void 0, void 0, function* () {
 });
 const showPokemon = (pokemon) => {
     let output = `
+
     <div class="card">
-      <span class="card--id">#${pokemon.id}</span>
-      <img class="card--image" src="${pokemon.image}" alt="${pokemon.name}" />
-      <h1 class="card--name">${pokemon.name}</h1>
-      <span class="card--details">${pokemon.type}</span>
+      <span class="card-id">#${pokemon.id}</span>
+      <img class="card-img" src="${pokemon.image}" alt="${pokemon.name}" />
+      <h1 class="card-name">${pokemon.name}</h1>
+      <span class="card-details">${pokemon.type}</span>
     </div>
+   
   `;
     container.innerHTML += output;
 };
